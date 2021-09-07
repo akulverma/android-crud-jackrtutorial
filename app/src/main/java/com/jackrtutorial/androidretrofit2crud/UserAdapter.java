@@ -16,7 +16,6 @@ import java.util.List;
 
 public class UserAdapter extends ArrayAdapter<User> {
 
-    private static final android.R.attr R = ;
     private Context context;
     private List<User> users;
 

@@ -1,0 +1,176 @@
+diff --git a/.idea/gradle.xml b/.idea/gradle.xml
+index 526b4c2..35ffc65 100644
+--- a/.idea/gradle.xml
++++ b/.idea/gradle.xml
+@@ -7,6 +7,7 @@
+         <option name="testRunner" value="GRADLE" />
+         <option name="distributionType" value="DEFAULT_WRAPPED" />
+         <option name="externalProjectPath" value="$PROJECT_DIR$" />
++        <option name="gradleJvm" value="Embedded JDK" />
+         <option name="modules">
+           <set>
+             <option value="$PROJECT_DIR$" />
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+index 1dcd015..e586b7a 100644
+--- a/.idea/misc.xml
++++ b/.idea/misc.xml
+@@ -9,7 +9,7 @@
+       </map>
+     </option>
+   </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/build/classes" />
+   </component>
+   <component name="ProjectType">
+diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+index 0902376..6b179f4 100644
+--- a/app/src/main/AndroidManifest.xml
++++ b/app/src/main/AndroidManifest.xml
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+-    package="com.jackrutorial.androidretrofit2crud">
++    package="com.jackrtutorial.androidretrofit2crud">
+ 
+     <uses-permission android:name="android.permission.INTERNET" />
+ 
+@@ -10,6 +10,7 @@
+         android:label="@string/app_name"
+         android:roundIcon="@mipmap/ic_launcher_round"
+         android:supportsRtl="true"
++        android:theme="@style/Theme.AndroidRetrofit2CRUD"
+         >
+         <activity android:name=".MainActivity">
+             <intent-filter>
+diff --git a/app/src/main/java/com/jackrtutorial/androidretrofit2crud/MainActivity.kt b/app/src/main/java/com/jackrtutorial/androidretrofit2crud/MainActivity.kt
+index 04cd802..f755716 100644
+--- a/app/src/main/java/com/jackrtutorial/androidretrofit2crud/MainActivity.kt
++++ b/app/src/main/java/com/jackrtutorial/androidretrofit2crud/MainActivity.kt
+@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
+ import com.jackrtutorial.androidretrofit2crud.model.User
+ import com.jackrtutorial.androidretrofit2crud.remote.APIUtils
+ import com.jackrtutorial.androidretrofit2crud.remote.UserService
+-import com.jackrutorial.androidretrofit2crud.R
++import com.jackrtutorial.androidretrofit2crud.R
+ import retrofit2.Call
+ import retrofit2.Callback
+ import retrofit2.Response
+diff --git a/app/src/main/java/com/jackrtutorial/androidretrofit2crud/UserActivity.kt b/app/src/main/java/com/jackrtutorial/androidretrofit2crud/UserActivity.kt
+index 844dd12..5e32d4a 100644
+--- a/app/src/main/java/com/jackrtutorial/androidretrofit2crud/UserActivity.kt
++++ b/app/src/main/java/com/jackrtutorial/androidretrofit2crud/UserActivity.kt
+@@ -2,7 +2,6 @@ package com.jackrtutorial.androidretrofit2crud
+ 
+ import android.content.Intent
+ import android.os.Bundle
+-import android.support.v7.app.AppCompatActivity
+ import android.util.Log
+ import android.view.MenuItem
+ import android.view.View
+@@ -14,9 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
+ import com.jackrtutorial.androidretrofit2crud.model.User
+ import com.jackrtutorial.androidretrofit2crud.remote.APIUtils
+ import com.jackrtutorial.androidretrofit2crud.remote.UserService
+-import com.jackrutorial.androidretrofit2crud.model.User
+-import com.jackrutorial.androidretrofit2crud.remote.APIUtils
+-import com.jackrutorial.androidretrofit2crud.remote.UserService
++import com.jackrtutorial.androidretrofit2crud.R
+ import retrofit2.Call
+ import retrofit2.Callback
+ import retrofit2.Response
+diff --git a/app/src/main/java/com/jackrtutorial/androidretrofit2crud/UserAdapter.java b/app/src/main/java/com/jackrtutorial/androidretrofit2crud/UserAdapter.java
+index 8ec2c88..03de3fe 100644
+--- a/app/src/main/java/com/jackrtutorial/androidretrofit2crud/UserAdapter.java
++++ b/app/src/main/java/com/jackrtutorial/androidretrofit2crud/UserAdapter.java
+@@ -11,12 +11,12 @@ import android.widget.ArrayAdapter;
+ import android.widget.TextView;
+ 
+ import com.jackrtutorial.androidretrofit2crud.model.User;
++import com.jackrtutorial.androidretrofit2crud.R;
+ 
+ import java.util.List;
+ 
+ public class UserAdapter extends ArrayAdapter<User> {
+ 
+-    private static final android.R.attr R = ;
+     private Context context;
+     private List<User> users;
+ 
+diff --git a/app/src/main/java/com/jackrtutorial/androidretrofit2crud/remote/UserService.java b/app/src/main/java/com/jackrtutorial/androidretrofit2crud/remote/UserService.java
+index 215a2b0..658c494 100644
+--- a/app/src/main/java/com/jackrtutorial/androidretrofit2crud/remote/UserService.java
++++ b/app/src/main/java/com/jackrtutorial/androidretrofit2crud/remote/UserService.java
+@@ -1,6 +1,6 @@
+ package com.jackrtutorial.androidretrofit2crud.remote;
+ 
+-import com.jackrutorial.androidretrofit2crud.model.User;
++import com.jackrtutorial.androidretrofit2crud.model.User;
+ 
+ import java.util.List;
+ 
+diff --git a/app/src/main/res/layout/activity_main.xml b/app/src/main/res/layout/activity_main.xml
+index 3ad9bd3..29de5ea 100644
+--- a/app/src/main/res/layout/activity_main.xml
++++ b/app/src/main/res/layout/activity_main.xml
+@@ -4,7 +4,8 @@
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    tools:context="com.jackrutorial.androidretrofit2crud.MainActivity">
++    android:theme="@style/Theme.AndroidRetrofit2CRUD"
++    tools:context="com.jackrtutorial.androidretrofit2crud.MainActivity">
+ 
+     <LinearLayout
+         android:layout_width="match_parent"
+diff --git a/app/src/main/res/layout/activity_user.xml b/app/src/main/res/layout/activity_user.xml
+index e016c2a..28270a8 100644
+--- a/app/src/main/res/layout/activity_user.xml
++++ b/app/src/main/res/layout/activity_user.xml
+@@ -4,7 +4,8 @@
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    tools:context="com.jackrutorial.androidretrofit2crud.UserActivity">
++    android:theme="@style/Theme.AndroidRetrofit2CRUD"
++    tools:context="com.jackrtutorial.androidretrofit2crud.UserActivity">
+ 
+     <LinearLayout
+         android:layout_width="match_parent"
+diff --git a/app/src/main/res/values-night/themes.xml b/app/src/main/res/values-night/themes.xml
+index 390a7ab..799e5d5 100644
+--- a/app/src/main/res/values-night/themes.xml
++++ b/app/src/main/res/values-night/themes.xml
+@@ -1,6 +1,6 @@
+ <resources xmlns:tools="http://schemas.android.com/tools">
+     <!-- Base application theme. -->
+-    <style name="Theme.AndroidRetrofit2CRUD" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
++    <style name="Theme.AndroidRetrofit2CRUD" parent="Theme.AppCompat.DayNight.DarkActionBar">
+         <!-- Primary brand color. -->
+         <item name="colorPrimary">@color/purple_200</item>
+         <item name="colorPrimaryVariant">@color/purple_700</item>
+diff --git a/app/src/main/res/values/themes.xml b/app/src/main/res/values/themes.xml
+index 81f2aaf..fe84ca4 100644
+--- a/app/src/main/res/values/themes.xml
++++ b/app/src/main/res/values/themes.xml
+@@ -1,6 +1,6 @@
+ <resources xmlns:tools="http://schemas.android.com/tools">
+     <!-- Base application theme. -->
+-    <style name="Theme.AndroidRetrofit2CRUD" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
++    <style name="Theme.AndroidRetrofit2CRUD" parent="Theme.AppCompat.DayNight.DarkActionBar">
+         <!-- Primary brand color. -->
+         <item name="colorPrimary">@color/purple_500</item>
+         <item name="colorPrimaryVariant">@color/purple_700</item>
+diff --git a/build.gradle b/build.gradle
+index 5f1384b..ea01f22 100644
+--- a/build.gradle
++++ b/build.gradle
+@@ -5,7 +5,7 @@ buildscript {
+         mavenCentral()
+     }
+     dependencies {
+-        classpath "com.android.tools.build:gradle:7.0.0"
++        classpath 'com.android.tools.build:gradle:7.0.2'
+         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.21"
+ 
+         // NOTE: Do not place your application dependencies here; they belong
