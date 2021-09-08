@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.jackrutorial.androidretrofit2crud.MainActivity">
+    android:theme="@style/Theme.AndroidRetrofit2CRUD"
+    tools:context="com.jackrtutorial.androidretrofit2crud.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

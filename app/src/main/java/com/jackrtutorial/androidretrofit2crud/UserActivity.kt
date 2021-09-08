@@ -2,7 +2,7 @@ package com.jackrtutorial.androidretrofit2crud
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+// import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
@@ -14,9 +14,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.jackrtutorial.androidretrofit2crud.model.User
 import com.jackrtutorial.androidretrofit2crud.remote.APIUtils
 import com.jackrtutorial.androidretrofit2crud.remote.UserService
-import com.jackrutorial.androidretrofit2crud.model.User
-import com.jackrutorial.androidretrofit2crud.remote.APIUtils
-import com.jackrutorial.androidretrofit2crud.remote.UserService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -34,15 +31,18 @@ class UserActivity : AppCompatActivity() {
         setContentView(R.layout.activity_user)
         title = "Users"
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        txtUId = findViewById<View>(R.id.txtUId) as TextView
+        txtUId = findViewById<View>(R.id.txtBarcode) as TextView
+        txtUId = findViewById<View>(R.id.txtProduct_Name) as TextView
+        txtUId = findViewById<View>(R.id.txtIngredients) as TextView
+        txtUId = findViewById<View>(R.id.txtStatus) as TextView
         edtUId = findViewById<View>(R.id.edtUId) as EditText
         edtUsername = findViewById<View>(R.id.edtUsername) as EditText
         btnSave = findViewById<View>(R.id.btnSave) as Button
         btnDel = findViewById<View>(R.id.btnDel) as Button
         userService = APIUtils.getUserService()
         val extras = intent.extras
-        val userId = extras!!.getString("user_id")
-        val userName = extras.getString("user_name")
+        val userId = extras!!.getString("barcode")
+        val userName = extras.getString("product_name")
         edtUId!!.setText(userId)
         edtUsername!!.setText(userName)
         if (userId != null && userId.trim { it <= ' ' }.length > 0) {
@@ -54,7 +54,7 @@ class UserActivity : AppCompatActivity() {
         }
         btnSave!!.setOnClickListener {
             val u = User()
-            u.name = edtUsername!!.text.toString()
+            u.product_name = edtUsername!!.text.toString()
             if (userId != null && userId.trim { it <= ' ' }.length > 0) {
                 //update user
                 updateUser(userId.toInt(), u)

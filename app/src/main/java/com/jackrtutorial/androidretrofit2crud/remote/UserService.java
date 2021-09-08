@@ -1,6 +1,6 @@
 package com.jackrtutorial.androidretrofit2crud.remote;
 
-import com.jackrutorial.androidretrofit2crud.model.User;
+import com.jackrtutorial.androidretrofit2crud.model.User;
 
 import java.util.List;
 

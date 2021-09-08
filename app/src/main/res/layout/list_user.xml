@@ -6,14 +6,28 @@
     >
 
     <TextView
-        android:id="@+id/txtUserId"
+        android:id="@+id/txtBarcode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="3dp"
         />
 
     <TextView
-        android:id="@+id/txtUsername"
+        android:id="@+id/txtProduct_Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+        />
+
+    <TextView
+        android:id="@+id/txtIngredients"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+        />
+
+    <TextView
+        android:id="@+id/txtStatus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="3dp"

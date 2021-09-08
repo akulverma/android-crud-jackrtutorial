@@ -3,35 +3,61 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class User {
-    @SerializedName("id")
+    @SerializedName("Barcode")
     @Expose
-    private int id;
+    private int barcode;
 
-    @SerializedName("name")
+    @SerializedName("Product Name")
     @Expose
-    private String name;
+    private String product_name;
+
+    @SerializedName("Ingredients")
+    @Expose
+    private String ingredients;
+
+    @SerializedName("Status")
+    @Expose
+    private int status;
 
     public User() {
     }
 
-    public User(int id, String name) {
-        this.id = id;
-        this.name = name;
+    public User(int barcode, String product_name, String ingredients, int status) {
+        this.barcode = barcode;
+        this.product_name = product_name;
+        this.ingredients = ingredients;
+        this.status = status;
     }
 
-    public int getId() {
-        return id;
+    public int getBarcode() {
+        return barcode;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setBarcode(int barcode) {
+        this.barcode = barcode;
     }
 
-    public String getName() {
-        return name;
+    public String getProduct_name() {
+        return product_name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setProduct_name(String product_name) {
+        this.product_name = product_name;
+    }
+
+    public String getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(String ingredients) {
+        this.ingredients = ingredients;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 }

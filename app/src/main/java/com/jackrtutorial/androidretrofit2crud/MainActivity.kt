@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.jackrtutorial.androidretrofit2crud.model.User
 import com.jackrtutorial.androidretrofit2crud.remote.APIUtils
 import com.jackrtutorial.androidretrofit2crud.remote.UserService
-import com.jackrutorial.androidretrofit2crud.R
+import com.jackrtutorial.androidretrofit2crud.R
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
                             list = response.body()!!
                             listView!!.adapter =
                                 UserAdapter(this@MainActivity, R.layout.list_user, list)
-                        }
+                                                    }
                     }
 
                     override fun onFailure(call: Call<List<User>>, t: Throwable) {
